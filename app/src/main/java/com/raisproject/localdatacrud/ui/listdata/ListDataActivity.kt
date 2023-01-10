@@ -14,14 +14,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class ListDataActivity : AppCompatActivity() {
 
     private val viewModel: ListViewModel by viewModels()
-    lateinit var data: Data
+//    lateinit var data: Data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val binding = ActivityListDataBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel.saveData(data)
+//        viewModel.saveData(data)
 
         val dataAdapter = DataAdapter()
 

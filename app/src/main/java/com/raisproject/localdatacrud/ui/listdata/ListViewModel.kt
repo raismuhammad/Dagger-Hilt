@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.raisproject.localdatacrud.data.model.Data
 import com.raisproject.localdatacrud.repository.DummyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -17,6 +18,12 @@ class ListViewModel @Inject constructor(
 
     private val dataEventChannel = Channel<DataEvent>()
     val dataEvent = dataEventChannel.receiveAsFlow()
+
+    fun getListData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            dummyRepository.getDataDummy().body()
+        }
+    }
 
     fun saveData(data: Data) {
         viewModelScope.launch {
