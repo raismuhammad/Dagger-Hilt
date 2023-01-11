@@ -22,4 +22,6 @@ class DummyRepository @Inject constructor(
     fun getAllData() = dataDao.getData()
 
     suspend fun insertData(data: Data) = dataDao.insert(data)
+
+    suspend fun insertAllData(list: List<Data>) = dataDao.insertAll(list)
 }

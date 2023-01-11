@@ -19,4 +19,7 @@ interface DataDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(data: Data)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(list: List<Data>)
 }
